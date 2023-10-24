@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const seriesShema = mongoose.Schema({
   nombre: String,
   fechaLanzamiento: Date,
-  director: String,
+  director: Array,
   temporadas: Number,
   cantidadEpisodios: Number,
   active: Boolean,

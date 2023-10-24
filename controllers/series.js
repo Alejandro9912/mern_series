@@ -13,14 +13,14 @@ async function createSerie(req, res) {
 }
 
 async function getMenus(req, res) {
-  const { active } = req.query;
+  const { director } = req.query;
 
   let response = null;
 
-  if (active === undefined) {
+  if (director === undefined) {
     response = await series.find().sort({ nombre: "asc" });
   } else {
-    response = await series.find({ active }).sort({ nombre: "asc" });
+    response = await series.find({ director }).sort({ nombre: "asc" });
   }
 
   if (!response) {
