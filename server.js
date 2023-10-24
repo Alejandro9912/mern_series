@@ -8,6 +8,8 @@ const app = express();
 // Import routines
 
 const authRoutes = require('./router/auth')
+const userRoutes = require('./router/user')
+const seriesRoutes = require('./router/series')
 
 // Configure Body Parser
 
@@ -25,5 +27,7 @@ app.use(cors());
 // Configure routings
 
 app.use(`/api/${API_Version}`, authRoutes)
+app.use(`/api/${API_Version}`, userRoutes)
+app.use(`/api/${API_Version}`, seriesRoutes)
 
 module.exports = app;

@@ -13,4 +13,5 @@ module.exports = {
   DB_Host,
   API_Version,
   IP_Server,
+  JWT_SECRET_KEY
 };
