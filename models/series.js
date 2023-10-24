@@ -24,4 +24,4 @@ const seriesSchema = mongoose.Schema({
   active: Boolean,
 });
 
-module.exports = mongoose.model("Series", seriesShema);
+module.exports = mongoose.model("Series", seriesSchema);
