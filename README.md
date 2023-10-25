@@ -71,10 +71,9 @@ POST /series
 }
 ```
 
-```
+```bash
 Listado de Series (GET):
 
-```bash
 
 GET /serie
 ```
