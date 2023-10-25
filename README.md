@@ -1,5 +1,7 @@
 # API REST para Registro de Series de Televisión
 
+Despliegue mediante el uso de [Cliente en Glitch](http://lavish-futuristic-nickel.glitch.me/api/v1/users).
+
 ![Logo de la aplicación](utils/img/postman1.png)
 
 ## Descripción
@@ -8,7 +10,7 @@ Esta API REST permite el registro de información básica sobre series, director
 
 ![Logo de la aplicación](utils/img/postman2.png)
 
-Se deben instalar las dependencias principales con el siguiente comando:
+Si se ejecuta de manera local se deben instalar las dependencias principales con el siguiente comando:
 
 ```bash
 yarn add express nodemon jsonwebtoken body-parser mongoose bcryptjs cors
@@ -67,6 +69,9 @@ Esta API está integrada con una base de datos MongoDB alojada en Mongo Atlas. A
 
 ## Ejemplos de Uso
 A continuación se proporcionan ejemplos de solicitud utilizando la herramienta Postman:
+
+Las pruebas se pueden hacer tanto a el servidor en la nube a la url `https://lavish-futuristic-nickel.glitch.me/api/v1/...`
+O de forma local `http://localhost:3977/api/v1/...`
 
 ### Registro de un Usuario (POST)
 ```bash
