@@ -1,7 +1,8 @@
 # API REST para Registro de Series de Televisión
 
-## Descripción
 ![Logo de la aplicación](utils/img/postman1.png)
+
+## Descripción
 
 Esta API REST permite el registro de información básica sobre series, directores y usuarios. Cada serie puede tener varios directores y un director puede haber participado en varias series. La API ofrece métodos para registrar, listar, modificar y eliminar la información de series y directores.
 
