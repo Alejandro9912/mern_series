@@ -8,6 +8,17 @@ Esta API REST permite el registro de información básica sobre series, director
 
 ![Logo de la aplicación](utils/img/postman2.png)
 
+Se deben instalar las dependencias principales con el siguiente comando:
+
+```bash
+yarn add express nodemon jsonwebtoken body-parser mongoose bcryptjs cors
+```
+
+El servidor debe ejecutarse mediante el comando:
+```bash
+yarn dev
+```
+Lo que iniciara una instancia de nodemon que permite una ejecucion constante del servicio y actualizacion permanente de las peticiones.
 ## Endpoints Disponibles
 
 ## API
