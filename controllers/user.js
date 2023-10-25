@@ -1,5 +1,6 @@
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
+
 async function getMe(req, res) {
   const { user_id } = req.user;
 
@@ -27,8 +28,8 @@ async function getUsers(req, res) {
 }
 
 async function createUser(req, res) {
-  console.log(req.body);
   const { password } = req.body;
+
   const user = new User({ ...req.body, active: false });
 
   const salt = bcrypt.genSaltSync(10);
@@ -49,35 +50,33 @@ async function updateUser(req, res) {
   const { id } = req.params;
   const userData = req.body;
 
-  if(userData.password){
+  if (userData.password) {
     const salt = bcrypt.genSaltSync(10);
     const hashPassword = bcrypt.hashSync(userData.password, salt);
-    userData.password = hashPassword
-  }else{
-    delete userData.password
+    userData.password = hashPassword;
+  } else {
+    delete userData.password;
   }
 
-
-  User.findByIdAndUpdate({_id: id}, userData, (error)=>{
-    if(error){
-        res.status(400).send({msg: "Error al actualizar el usuario"})
-    }else{
-        res.status(200).send({msg: "Actualizacion Correcta"})
+  User.findByIdAndUpdate({ _id: id }, userData, (error) => {
+    if (error) {
+      res.status(400).send({ msg: "Error al actualizar el usuario" });
+    } else {
+      res.status(200).send({ msg: "Actualizacion Correcta" });
     }
-  })
+  });
 }
 
+async function deleteUser(req, res) {
+  const { id } = req.params;
 
-async function deleteUser(req,res){
-    const { id } = req.params;
-
-    User.findByIdAndDelete(id, (error)=>{
-        if(error){
-            res.status(400).send({msg:"Error al eliminar el usuario"})
-        }else{
-            res.status(200).send({msg: 'Usuario eliminado'})
-        }
-    })
+  User.findByIdAndDelete(id, (error) => {
+    if (error) {
+      res.status(400).send({ msg: "Error al eliminar el usuario" });
+    } else {
+      res.status(200).send({ msg: "Usuario eliminado" });
+    }
+  });
 }
 module.exports = {
   getMe,

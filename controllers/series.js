@@ -1,9 +1,9 @@
-const series = require("../models/series");
+const Series = require("../models/series");
 
 async function createSerie(req, res) {
-  const serie = new series(req.body);
+  const series = new Series({ ...req.body, active: false });
 
-  serie.save((error, serieStored) => {
+  series.save((error, serieStored) => {
     if (error) {
       res.status(400).send({ msg: "Error al crear el menu" });
     } else {
@@ -12,15 +12,15 @@ async function createSerie(req, res) {
   });
 }
 
-async function getMenus(req, res) {
+async function getSeries(req, res) {
   const { director } = req.query;
 
   let response = null;
 
   if (director === undefined) {
-    response = await series.find().sort({ nombre: "asc" });
+    response = await Series.find().sort({ nombre: "asc" });
   } else {
-    response = await series.find({ director }).sort({ nombre: "asc" });
+    response = await Series.find({ director }).sort({ nombre: "asc" });
   }
 
   if (!response) {
@@ -30,34 +30,34 @@ async function getMenus(req, res) {
   }
 }
 
-async function updateSerie(req,res){
-    const { id } = req.params;
+async function updateSerie(req, res) {
+  const { id } = req.params;
 
-    const serieData = req.body
+  const serieData = req.body;
 
-    series.findByIdAndUpdate({_id:id}, serieData, (error)=>{
-       if(error){
-        res.status(400).send({msg:"Error al actualizar el menu"})
-       }else{
-        res.status(200).send({msg: "Actualizacion correcta"})
-       }
-    })
+  series.findByIdAndUpdate({ _id: id }, serieData, (error) => {
+    if (error) {
+      res.status(400).send({ msg: "Error al actualizar el menu" });
+    } else {
+      res.status(200).send({ msg: "Actualizacion correcta" });
+    }
+  });
 }
 
-async function deleteSerie(req,res){
-    const { id } = req.params;
+async function deleteSerie(req, res) {
+  const { id } = req.params;
 
-    series.findByIdAndDelete(id, (error) => {
-      if (error) {
-        res.status(400).send({ msg: "Error al eliminar el menu" });
-      } else {
-        res.status(200).send({ msg: "Eliminacion correcta" });
-      }
-    });
+  series.findByIdAndDelete(id, (error) => {
+    if (error) {
+      res.status(400).send({ msg: "Error al eliminar el menu" });
+    } else {
+      res.status(200).send({ msg: "Eliminacion correcta" });
+    }
+  });
 }
 module.exports = {
   createSerie,
-  getMenus,
+  getSeries,
   updateSerie,
   deleteSerie,
 };

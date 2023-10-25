@@ -17,7 +17,7 @@ function register(req, res) {
   });
 
   const salt = bcrypt.genSaltSync(10);
-  const hashPassword = bcrypt.hashSync(password);
+  const hashPassword = bcrypt.hashSync(password, salt);
   user.password = hashPassword;
 
   user.save((error, userStorage) => {

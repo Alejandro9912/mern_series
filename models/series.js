@@ -15,11 +15,11 @@ const seriesSchema = mongoose.Schema({
   },
   temporadas: {
     type: Number,
-    required: true,
+    required: false,
   },
   cantidadEpisodios: {
     type: Number,
-    required: true,
+    required: false,
   },
   active: Boolean,
 });
