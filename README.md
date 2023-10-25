@@ -1,7 +1,11 @@
 # API REST para Registro de Series de Televisión
 
 ## Descripción
+![Logo de la aplicación](utils/img/postman1.png)
+
 Esta API REST permite el registro de información básica sobre series, directores y usuarios. Cada serie puede tener varios directores y un director puede haber participado en varias series. La API ofrece métodos para registrar, listar, modificar y eliminar la información de series y directores.
+
+![Logo de la aplicación](utils/img/postman2.png)
 
 ## Endpoints Disponibles
 
@@ -43,6 +47,11 @@ Esta API REST permite el registro de información básica sobre series, director
 
 ## Integración con Base de Datos
 Esta API está integrada con una base de datos MongoDB alojada en Mongo Atlas. Asegúrate de que la conexión a la base de datos esté configurada correctamente en la aplicación.
+
+![Logo de la aplicación](utils/img/db.png)
+
+![Logo de la aplicación](utils/img/db2.png)
+
 
 ## Ejemplos de Uso
 A continuación se proporcionan ejemplos de solicitud utilizando la herramienta Postman:
